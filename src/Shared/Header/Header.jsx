@@ -28,7 +28,12 @@ const Header = () => {
                         </Nav>
                         <Nav className='d-flex align-items-center gap-2'>
                             {
-                                user && <Link><FaUserCircle className='text-black' style={{ fontSize: "40px" }}></FaUserCircle></Link>
+                                user && <div>
+                                    {
+                                        user.photoURL ?<img className='rounded-circle' style={{height: '40px'}} src={user.photoURL} alt="" />:
+                                        <p><FaUserCircle className='text-black' style={{ fontSize: "40px" }}></FaUserCircle></p>
+                                    }
+                                </div>
                             }
                             { user ?
                                 <Link><Button onClick={handleLogOut} variant="secondary">Loguot</Button></Link> :

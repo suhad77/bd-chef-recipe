@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { CgGoogle } from "react-icons/cg";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
 
-    const {signIn}= useContext(AuthContext)
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
 
-    const handleLogin = event =>{
+    const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -15,11 +17,31 @@ const Login = () => {
         console.log(email, password);
         form.reset();
         signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
         .then(result=>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
+            const googleUser = result.user;
+            console.log(googleUser)
         })
-        .catch(error =>{
+        .catch(error=>{
+            console.log(error);
+        })
+    }
+    const handleGithubSignIn = () =>{
+        githubSignIn()
+        .then(result=>{
+            const githubUser = result.user;
+            console.log(githubUser)
+        })
+        .catch(error=>{
             console.log(error);
         })
     }
@@ -47,7 +69,12 @@ const Login = () => {
                     <Button variant="primary" type="submit">
                         Login
                     </Button>
-                    <br /><br />
+                    <br />
+                    <div className="d-flex gap-3 mt-4">
+                        <button onClick={handleGoogleSignIn} className='border'><CgGoogle style={{ fontSize: '2.2rem' }}></CgGoogle></button>
+                        <button onClick={handleGithubSignIn} className='border'><FaGithub style={{ fontSize: '2.2rem' }}></FaGithub></button>
+                    </div>
+                    <br />
                     <Form.Text className="text-secondary">
                         Don't Have an Account? <Link to="/register">Register</Link>
                     </Form.Text>
