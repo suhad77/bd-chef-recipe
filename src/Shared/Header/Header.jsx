@@ -22,8 +22,8 @@ const Header = () => {
                         <Nav className="mx-auto d-flex gap-4">
                             <Link className='text-decoration-none text-black' to='/'>Home</Link>
                             <Link className='text-decoration-none text-black' to='/blog'>Blog</Link>
-                            <Link className='text-decoration-none text-black' to='/login'>Login</Link>
-                            <Link className='text-decoration-none text-black' to='/register'>Register</Link>
+                            {/* <Link className='text-decoration-none text-black' to='/login'>Login</Link>
+                            <Link className='text-decoration-none text-black' to='/register'>Register</Link> */}
 
                         </Nav>
                         <Nav className='d-flex align-items-center gap-2'>
