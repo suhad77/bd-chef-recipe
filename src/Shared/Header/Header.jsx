@@ -16,7 +16,7 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand to="/">BD Chef Recipe</Navbar.Brand>
+                    <Navbar.Brand to="/">Kitchen Sensation </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto d-flex gap-4">
