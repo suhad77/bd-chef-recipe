@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
@@ -6,11 +6,18 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
+    const [Hover, setHover] = useState(false)
 
     const handleLogOut = () =>{
         logOut()
         .then()
         .catch(error=> console.log(error));
+    }
+    const handelMouseEnter = () =>{
+        setHover(true)
+    }
+    const handelMouseOut = () =>{
+        setHover(false)
     }
     return (
         <div>
@@ -27,8 +34,9 @@ const Header = () => {
 
                         </Nav>
                         <Nav className='d-flex align-items-center gap-2'>
+                            {Hover&& <p>{user.displayName}</p>}
                             {
-                                user && <div>
+                                user && <div onMouseEnter={handelMouseEnter} onMouseOut={handelMouseOut}>
                                     {
                                         user.photoURL ?<img className='rounded-circle' style={{height: '40px'}} src={user.photoURL} alt="" />:
                                         <p><FaUserCircle className='text-black' style={{ fontSize: "40px" }}></FaUserCircle></p>

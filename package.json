@@ -1,5 +1,5 @@
 {
-  "name": "bd-chef-recipe",
+  "name": "Kitchen-Sensation",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.11.0",
+    "react-to-pdf": "^0.0.14",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
