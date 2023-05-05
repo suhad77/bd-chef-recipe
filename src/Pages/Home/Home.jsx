@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Banner from './Banner/Banner';
 import Cards from './Card/Cards';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import FoodCard from './FoodCard/FoodCard';
 import ContactUs from './ContactUs/ContactUs';
+import { useContext } from 'react';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Home = () => {
     const [categories, setCategories] = useState([])
     const [food, setFood] = useState([])
+    const {loading,setLoading } = useContext(AuthContext);
+    
+   
 
     useEffect(() => {
         fetch('https://bd-chef-recipe-server-suhad77.vercel.app/food')
@@ -16,6 +21,7 @@ const Home = () => {
             .catch(error => {
                 console.error(error);
             })
+            setLoading(false)
     })
     useEffect(() => {
         fetch('https://bd-chef-recipe-server-suhad77.vercel.app/categories')
@@ -24,7 +30,13 @@ const Home = () => {
             .catch(error => {
                 console.error(error);
             })
+            setLoading(false)
+
     })
+
+    if(loading){
+        return <Spinner animation="border" variant="primary" />
+    }
     return (
         <div>
             <Banner />
