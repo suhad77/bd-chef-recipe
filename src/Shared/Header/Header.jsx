@@ -34,7 +34,7 @@ const Header = () => {
 
                         </Nav>
                         <Nav className='d-flex align-items-center gap-2'>
-                            {Hover&& <p>{user.displayName}</p>}
+                            {Hover && <p>{user.displayName}</p>}
                             {
                                 user && <div onMouseEnter={handelMouseEnter} onMouseOut={handelMouseOut}>
                                     {
