@@ -1,20 +1,13 @@
-### Assignment-09
+### Assignment-10
 
-* The navbar has a brand name navigation options like Home, Statistics, Applied Jobs and Blog and a button
+* The navbar has a brand name navigation options like Brand Name, Home, Blog, Profile image and Login/Logout button
 
-* The homepage has a banner, category list category and featured works.
+* The homepage has a banner, Chef Card, Favarite Food, Contact me, Footer. 
 
-* First, the featured section contains the first four job cards
-Data shown as figma. There will be 4 cards in this featured section
-Below these cards are all the action buttons.
+* The blog page has answers to 4 questions.
 
-* Clicking on the View Details button will redirect the user to the /job/:id route
-where he/she will see a banner and all the details as shown in the job.
+* Authentication is done on login registration page. And if from the user then clicking on the logout button will logout the user. The logOut button will be changed to the login button and the link to the register page will be given on the login page.
 
-* Clicking on the Apply Now button will add that job information to local storage.
+* If you click on the chef card, it will take you to another route, if there is no user, it will take you to the login page, if there is a user, you will be taken to that route. Various information about the chef is given on the chef details page.
 
-* There will be an Applied Jobs page showing all applied jobs in a tabular/list view. All the applied jobs are shown there
-
-* A statistics page. This will be the chart
-As opposed to based on assignment marks (on the marks you have received so far)
-Assignment no.
+* Live website Link: https://bd-chef-recipe-27c5d.web.app/

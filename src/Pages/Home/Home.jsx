@@ -10,7 +10,7 @@ const Home = () => {
     const [food, setFood] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/food')
+        fetch('https://bd-chef-recipe-server-suhad77.vercel.app/food')
             .then(res => res.json())
             .then(data => setFood(data))
             .catch(error => {
@@ -18,7 +18,7 @@ const Home = () => {
             })
     })
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://bd-chef-recipe-server-suhad77.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(error => {
@@ -45,7 +45,7 @@ const Home = () => {
                     <div className='mt-5'>
                         <div className="w-25">
                             <div className="border border-danger border-3 w-50" ></div>
-                            <h2 className='py-4'>Favarite Food</h2>
+                            <h2 className='py-4'>Favourite Food</h2>
                         </div>
                         <Row lg={3} md={2} sm={1}>
                             {
