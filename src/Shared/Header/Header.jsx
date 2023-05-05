@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from '../../provider/AuthProvider';
 
@@ -8,16 +8,21 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const [Hover, setHover] = useState(false)
 
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
         logOut()
-        .then()
-        .catch(error=> console.log(error));
+            .then()
+            .catch(error => console.log(error));
     }
-    const handelMouseEnter = () =>{
+    const handelMouseEnter = () => {
         setHover(true)
     }
-    const handelMouseOut = () =>{
+    const handelMouseOut = () => {
         setHover(false)
+    }
+    const navLinkStyle = ({ isActive }) => {
+        return {
+            background: isActive ? '#E5E0FF' : ''
+        }
     }
     return (
         <div>
@@ -27,8 +32,8 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto d-flex gap-4">
-                            <Link className='text-decoration-none text-black' to='/'>Home</Link>
-                            <Link className='text-decoration-none text-black' to='/blog'>Blog</Link>
+                            <NavLink style={navLinkStyle} className='text-decoration-none text-black px-3 py-2' to='/'>Home</NavLink>
+                            <NavLink style={navLinkStyle} className='text-decoration-none text-black px-3 py-2' to='/blog'>Blog</NavLink>
                             {/* <Link className='text-decoration-none text-black' to='/login'>Login</Link>
                             <Link className='text-decoration-none text-black' to='/register'>Register</Link> */}
 
@@ -38,15 +43,15 @@ const Header = () => {
                             {
                                 user && <div onMouseEnter={handelMouseEnter} onMouseOut={handelMouseOut}>
                                     {
-                                        user.photoURL ?<img className='rounded-circle' style={{height: '40px'}} src={user.photoURL} alt="" />:
-                                        <p><FaUserCircle className='text-black' style={{ fontSize: "40px" }}></FaUserCircle></p>
+                                        user.photoURL ? <img className='rounded-circle' style={{ height: '40px' }} src={user.photoURL} alt="" /> :
+                                            <p><FaUserCircle className='text-black' style={{ fontSize: "40px" }}></FaUserCircle></p>
                                     }
                                 </div>
                             }
-                            { user ?
+                            {user ?
                                 <Link><Button onClick={handleLogOut} variant="secondary">Loguot</Button></Link> :
                                 <Link to='/login'><Button variant="secondary">Login</Button></Link>
-                                }
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

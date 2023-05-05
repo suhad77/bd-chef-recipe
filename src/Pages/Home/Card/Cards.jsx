@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { FcLike } from 'react-icons/fc';
 
 const Cards = ({ categories }) => {
-    // const {name,}=categories;
-    // console.log(categories);
     return (
 
         <Card>
